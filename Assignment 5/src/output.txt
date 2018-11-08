@@ -1,0 +1,46 @@
+********************************************************
+AUTHOR:         Christopher Millones
+ASSIGNMENT #4:  Binary Trees 
+CLASS:          CS1D
+TIME:           Mondays & Wednesday: 3:00 - 6:20PM
+DUE DATE:       2/21/2018
+********************************************************
+
+Implement a binary search tree using an array, vector or linked list.
+store the following elements:
+
+109, 55, 28, 19, 13, 1001, 18, 44, 88, 12, 24, 49, 7, 35, 55, 28, 19, 13, 18
+
+Perform the in-order, post-order, pre-order, breadth-first traversals
+in addition to the traversals, print out the binary search tree by level.
+
+		 109
+                /   \
+              55     1001
+             / \
+           28   88
+          /  \
+         19    44
+        / \   / \
+       13  24 35  49
+      / \
+    12   18
+    /
+   7
+	~BinarySearchTree~
+Level 1:   109 
+Level 2:   55   1001 
+Level 3:   28   88 
+Level 4:   19   44 
+Level 5:   13   24   35   49 
+Level 6:   12   18 
+Level 7:   7 
+
+	~In-Order Traversals~
+7 12 13 18 19 24 28 35 44 49 55 88 109 1001 
+	~Post-Order Traversals~
+7 12 18 13 24 19 35 49 44 28 88 55 1001 109 
+	~Pre-Order Traversals~
+109 55 28 19 13 12 7 18 24 44 35 49 88 1001 
+	~Breadth-First~
+109 55 1001 28 88 19 44 13 24 35 49 12 18 7 

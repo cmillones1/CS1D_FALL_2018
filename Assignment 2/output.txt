@@ -1,0 +1,81 @@
+********************************************************
+AUTHOR:         Christopher Millones
+ASSIGNMENT #:  2
+CLASS:          CS1D
+TIME:           Mondays & Wednesday: 5:00 - 7:20PM
+DUE DATE:       9/12/18
+********************************************************
+
+A. Implement and print (top of stack to bottom) the stacks
+ using the STL <stack> with the above data.
+B. Delete Eric and 8.445 from the above stacks
+ (you will need to delete others) using the STL <stack> 
+and print (top of stack to bottom) the remaining elements in the stacks.
+C. Implement and print (top of stack to bottom)
+ the stacks using a singly linked list using the above data.  
+Do not use the STL.
+D. Delete Eric and 8.445 from the above stacks 
+(you will need to delete others) and print (top of stack to bottom) the 
+remaining elements in the stacks. Do not use the STL.
+E. Implement the Parentheses Algorithm without 
+using the STL).  Test your algorithm with the given mathematical statements
+
+
+------- PART A -----
+	Strings:
+Element[1] Bill
+Element[2] JoAnn
+Element[3] Jennifer
+Element[4] Eric
+Element[5] Rick
+Element[6] Alan
+Element[7] Mark
+	Doubles:
+Element[1] 983.3
+Element[2] 8.445
+Element[3] 123.123
+Element[4] 88.88
+Element[5] 888.55
+Element[6] 44.44
+
+------- PART B -----
+	Strings:
+Element[1] Rick
+Element[2] Alan
+Element[3] Mark
+	Doubles:
+Element[1] 44.44
+
+------- PART C -----
+	Strings:
+Element [1] Bill
+Element [2] JoAnn
+Element [3] Jennifer
+Element [4] Eric
+Element [5] Rick
+Element [6] Alan
+Element [7] Mark
+	Doubles:
+Element [1] 983.3
+Element [2] 8.445
+Element [3] 123.123
+Element [4] 88.88
+Element [5] 888.55
+Element [6] 44.44
+
+------- PART D -----
+	Strings:
+Element [1] Rick
+Element [2] Alan
+Element [3] Mark
+	Doubles:
+Element [1] 44.44
+
+------- PART E -----
+{{8x+5) - 5x[9x+3]}) <- IS NOT VALID
+{2x + 5} (6x+4) <- IS VALID
+(((4x+8) - x[4x+3]))) <- IS NOT VALID
+[(5x - 5) - 4x[6x + 2]] <- IS VALID
+{(8x+5) - 6x[9x+3]] <- IS NOT VALID
+(12x + 6) (2x - 4) <- IS VALID
+{2x - 8) (12x + 6) <- IS NOT VALID

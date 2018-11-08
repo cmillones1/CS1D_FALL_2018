@@ -1,0 +1,41 @@
+********************************************************
+AUTHOR:         Christopher Millones & Jose & Jake 
+Lab #:  3
+CLASS:          CS1D
+TIME:           Mondays & Wednesday: 5:00 - 7:20PM
+DUE DATE:       8/29/18
+********************************************************
+
+Implement prefixAverages1 and prefixAverages2
+and perform an experimental analysis of their
+ running time using multiple array (vector) sizes.
+
+	Small PrefixAverage1
+Input: 0 1 2 3 ...
+Output: 0 0 1 1 ...
+Time(s): 9.454
+
+	Meduim PrefixAverage1
+Input: 0 1 2 3 ...
+Output: 0 0 1 1 ...
+Time(s): 38.751
+
+	Large PrefixAverage1
+Input: 0 1 2 3 ...
+Output: 0 0 1 1 ...
+Time(s): 87.086
+
+	Small PrefixAverage2
+Input: 0 1 2 3 ...
+Output: 0 0 1 1 ...
+Time(s): 0.002
+
+	Medium PrefixAverage2
+Input: 0 1 2 3 ...
+Output: 0 0 1 1 ...
+Time(s): 0.003
+
+	Large PrefixAverage2
+Input: 0 1 2 3 ...
+Output: 0 0 1 1 ...
+Time(s): 0.005

@@ -1,0 +1,30 @@
+insert 18 Laguna Niguel
+insert 41 Mission Viejo
+insert 22 San Clemente
+insert 44 Irvine
+Delete key 41
+insert 58 Lake Forest
+insert 32 San Diego
+insert 49 Anaheim
+Delete key 58
+insert 31 Los Angeles
+insert 17 Orange
+insert 72 Palms Springs
+insert 41 Riverside
+Delete key 72
+insert 19 Brea
+insert 60 Santa Ana
+insert 35 Tustin
+insert 103 Oceanside
+insert 11 La Jolla
+insert 18 Del Mar
+insert 22 Aliso Viejo
+insert 49 Laguna Beach
+Delete key 41
+insert 42 Vista
+insert 49 San Diego
+insert 99 San Juan
+insert 29 Dana Point
+insert 88 El Segundo
+insert 41 San Clemente
+insert 62 Laguna Hills
