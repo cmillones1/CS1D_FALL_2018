@@ -33,7 +33,7 @@ class graph
 {
 private:
 	vector<cityNode> vertex;
-	vector<node> edge{vector<node>(11)};
+	vector<node> edge{vector<node>(12)};
 	int distancetraveled;
 	int count;
 
@@ -46,6 +46,7 @@ public:
 	void insertedge(int start, int end, int distance);
 	void displayVertex();
 	void displayEdges();
+	void DFS(int startingCity);
 };
 
 
@@ -65,18 +66,17 @@ graph::~graph()
 void graph::displayEdges()
 {
 
-	for(int i = 0; i <= 9; i++)
+	for(unsigned int i = 0; i <= edge.size()-1; i++)
 	{
 		node* temp = edge.at(i).next;
-		cout << "City Start -> " << vertex.at(i).city << endl;
+		cout << "\nCity Start -> " << vertex.at(i).city;
 		while(temp != NULL)
 		{
 			cout << "\nStart: " << temp->start;
 			cout << "\nEnd: " << temp->end;
-			cout << "\nDistance: " << temp->distance;
+			cout << "\nDistance: " << temp->distance << endl;
 			temp = temp->next;
 		}
-
 	}
 
 
@@ -93,22 +93,30 @@ void graph::insertedge(int start, int end, int distance)
 
 
 
-	if(count == 0)
+	if(edge.at(start).next == NULL)
 	{
 		edge.at(start).next = temp;
-		count ++;
+//		cout << "\nBEING ADDED";
+//		cout << "\nStart: " << temp->start;
+//		cout << "\nEnd: " << temp->end;
+//		cout << "\nDistance: " << temp->distance << endl;
+
 	}
 	else
 	{
 		node* head = edge.at(start).next;
-
 		while(head != NULL)
 		{
 			if(head->next == NULL)
 			{
 				head->next = temp;
-				return;
+//				cout << "\nBEING ADDED";
+//				cout << "\nStart: " << temp->start;
+//				cout << "\nEnd: " << temp->end;
+//				cout << "\nDistance: " << temp->distance << endl;
+				break;
 			}
+
 			head = head->next;
 		}
 
@@ -116,6 +124,7 @@ void graph::insertedge(int start, int end, int distance)
 	}
 	//delete(temp);
 }
+
 
 void graph::insertVertex(string city)
 {
@@ -136,6 +145,26 @@ void graph::displayVertex()
 }
 
 
+void graph::DFS(int startingCity)
+{
+
+//	int shortestDistance = 9000;
+//	int endCity;
+//	node* temp = edge.at(startingCity).next;
+//	vertex.at(startingCity).visited = true;
+//	while(temp != NULL)
+//	{
+//		if(temp->distance < shortestDistance)
+//		{
+//			endCity = temp->end;
+//			shortestDistance = temp->distance;
+//		}
+//	}
+//
+//	vertex.at(endCity).visited = true;
+
+
+}
 
 
 
