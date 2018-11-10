@@ -45,7 +45,7 @@ public:
 	void insertVertex(string city);
 	void insertedge(int start, int end, int distance);
 	void displayVertex();
-	void displayEdges(int x);
+	void displayEdges();
 };
 
 
@@ -62,14 +62,28 @@ graph::~graph()
 	count = 0;
 }
 
-void graph::displayEdges(int x)
+void graph::displayEdges()
 {
 
-	cout << edge.at(x).next->distance;
+	for(int i = 0; i <= 9; i++)
+	{
+		node* temp = edge.at(i).next;
+		cout << "City Start -> " << vertex.at(i).city << endl;
+		while(temp != NULL)
+		{
+			cout << "\nStart: " << temp->start;
+			cout << "\nEnd: " << temp->end;
+			cout << "\nDistance: " << temp->distance;
+			temp = temp->next;
+		}
+
+	}
+
 
 }
 void graph::insertedge(int start, int end, int distance)
 {
+	// 0, 1, 661  (ATL - > MIAMI, 661)
 	node* temp = new node;
 	temp->start = start;
 	temp->end = end;
@@ -77,13 +91,30 @@ void graph::insertedge(int start, int end, int distance)
 	temp->discEdge = false;
 	temp->next = NULL;
 
+
+
 	if(count == 0)
 	{
 		edge.at(start).next = temp;
-		cout << "\n\n" << edge.at(start).next->distance << "\n\n" ;
 		count ++;
 	}
-	delete(temp);
+	else
+	{
+		node* head = edge.at(start).next;
+
+		while(head != NULL)
+		{
+			if(head->next == NULL)
+			{
+				head->next = temp;
+				return;
+			}
+			head = head->next;
+		}
+
+
+	}
+	//delete(temp);
 }
 
 void graph::insertVertex(string city)
@@ -99,7 +130,7 @@ void graph::displayVertex()
 {
 	for(unsigned int i=0; i <= vertex.size()-1; i++)
 	{
-		cout << "Element [" << i+1 << "]" << vertex.at(i).city << endl;
+		cout << "Element [" << i << "]" << vertex.at(i).city << endl;
 	}
 
 }
