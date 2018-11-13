@@ -19,6 +19,7 @@ struct node
 	int end;
 	int distance;
 	bool discEdge;
+	bool backEdge;
 	node *next;
 };
 
@@ -89,6 +90,7 @@ void graph::insertedge(int start, int end, int distance)
 	temp->end = end;
 	temp->distance = distance;
 	temp->discEdge = false;
+	temp->backEdge = false;
 	temp->next = NULL;
 
 
@@ -148,20 +150,32 @@ void graph::displayVertex()
 void graph::DFS(int startingCity)
 {
 
-//	int shortestDistance = 9000;
-//	int endCity;
-//	node* temp = edge.at(startingCity).next;
-//	vertex.at(startingCity).visited = true;
-//	while(temp != NULL)
-//	{
-//		if(temp->distance < shortestDistance)
-//		{
-//			endCity = temp->end;
-//			shortestDistance = temp->distance;
-//		}
-//	}
-//
-//	vertex.at(endCity).visited = true;
+	int shortestDistance = 9999;
+	node * temp = edge.at(startingCity).next;
+	int endCity;
+
+	while(temp != NULL)
+	{
+		if(!vertex.at(startingCity).visited && temp->distance < shortestDistance && !temp->discEdge
+				&& !temp->backEdge)
+		{
+			shortestDistance = temp->distance;
+			endCity = temp->end;
+		}
+		else if(vertex.at(startingCity).visited && temp->distance < shortestDistance && !temp->discEdge
+				&& !temp->backEdge)
+		{
+			temp->backEdge = true;
+			if(temp->next != NULL && !vertex.at(startingCity).visited)
+			{
+				shortestDistance = temp->distance;
+				endCity = temp->end;
+			}
+		}
+	}
+
+
+
 
 
 }
