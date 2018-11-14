@@ -1,123 +1,142 @@
-/*
- * main.cpp
- *
- *  Created on: Nov 8, 2018
- *      Author: Chris
- */
 
-#include <iostream>
-#include <iomanip>
 #include "graph.h"
-using namespace std;
-
-int main()
-{
-
-	graph obj;
-
-	obj.insertVertex("Atlanta"); // index: 0
-	obj.insertVertex("Miami"); // index: 1
-	obj.insertVertex("Houston"); // index: 2
-	obj.insertVertex("Dallas"); // index: 3
-	obj.insertVertex("Kansas City"); // index: 4
-	obj.insertVertex("Los Angeles"); // index: 5
-	obj.insertVertex("San Francisco"); // index: 6
-	obj.insertVertex("Seattle"); // index: 7
-	obj.insertVertex("Chicago"); // index: 8
-	obj.insertVertex("Boston"); // index: 9
-	obj.insertVertex("New York"); // index: 10
-	obj.insertVertex("Denver"); // index: 11
-
-	obj.displayVertex();
-
-	// Index: 0 -> Atlanta
-	//cout << "\nStarting at -> 0";
-	obj.insertedge(0,1,661); // to MIA  (start,end,distance)
-	obj.insertedge(0,2,810); // to Houston
-	obj.insertedge(0,3,781); // to dallas
-	obj.insertedge(0,4,864); // to KC
-	obj.insertedge(0,10,888); // to NY
-
-	// Index: 1 -> Miami
-	//cout << "\nStarting at -> 1";
-	obj.insertedge(1,2,1187); // to Houston
-	obj.insertedge(1,0,661); // to Atl
-
-	//Index: 2 -> Houston
-	//cout << "\nStarting at -> 2";
-	obj.insertedge(2,3,239);
-	obj.insertedge(2,0,810);
-	obj.insertedge(2,1,1187);
-
-	//Index 3 -> Dallas
-	//cout << "\nStarting at -> 3";
-	obj.insertedge(3,2,239);
-	obj.insertedge(3,0,781);
-	obj.insertedge(3,4,496);
-	obj.insertedge(3,5,1435);
-
-	// Index 4 -> KC
-	//cout << "\nStarting at -> 4";
-	obj.insertedge(4,3,496);
-	obj.insertedge(4,0,864);
-	obj.insertedge(4,10,1260);
-	obj.insertedge(4,8,533);
-	obj.insertedge(4,11,599);
-	obj.insertedge(4,5,1663);
-
-	// Index 5 -> LA
-	//cout << "\nStarting at -> 5";
-	obj.insertedge(5,3,1435);
-	obj.insertedge(5,4,1663);
-	obj.insertedge(5,11,1015);
-	obj.insertedge(5,6,381);
-
-	// Index 6 -> SF
-	//cout << "\nStarting at -> 6";
-	obj.insertedge(6,7,807);
-	obj.insertedge(6,11,1267);
-	obj.insertedge(6,5,381);
-
-	//Index 7 -> Seattle
-	//cout << "\nStarting at -> 7";
-	obj.insertedge(7,6,807);
-	obj.insertedge(7,11,1331);
-	obj.insertedge(7,8,2097);
-
-	//Index 8 -> Chicago
-	//cout << "\nStarting at -> 8";
-	obj.insertedge(8,7,2097);
-	obj.insertedge(8,11,1003);
-	obj.insertedge(8,4,533);
-	obj.insertedge(8,10,787);
-	obj.insertedge(8,9,983);
-
-	//Index 9 -> Boston
-	//cout << "\nStarting at -> 9";
-	obj.insertedge(9,8,983);
-	obj.insertedge(9,10,214);
-
-	//Index 10 -> NY
-	//cout << "\nStarting at -> 10";
-	obj.insertedge(10,9,214);
-	obj.insertedge(10,8,787);
-	obj.insertedge(10,4,1260);
-	obj.insertedge(10,0,888);
-
-	//Index 11 -> Denver
-	//cout << "\nStarting at -> 11";
-	obj.insertedge(11,7,1331);
-	obj.insertedge(11,8,1003);
-	obj.insertedge(11,4,599);
-	obj.insertedge(11,5,1015);
-	obj.insertedge(11,6,1267);
 
 
-	obj.displayEdges();
 
+int main() {
+
+	Graph myGraph; // Graph object.
+
+	/*
+	 *The following block of "insertion" will handle the structure of the graph.
+	 *With every insertion on an edge we are adding a vertex and edge that is connecting
+	 *the vertex with other vertex's
+	 */
+
+	// ATLANTA
+	myGraph.insertEdge("Atlanta", "Miami", 661);
+	myGraph.insertEdge("Atlanta", "Houston", 810);
+	myGraph.insertEdge("Atlanta", "Dallas", 781);
+	myGraph.insertEdge("Atlanta", "Kansas City", 864);
+	myGraph.insertEdge("Atlanta", "New York", 888);
+
+	// MIAMI
+	myGraph.insertEdge("Miami", "Houston", 1187);
+	myGraph.insertEdge("Miami", "Atlanta", 661);
+
+	// HOUSTON
+	myGraph.insertEdge("Houston", "Dallas", 239);
+	myGraph.insertEdge("Houston", "Atlanta", 810);
+	myGraph.insertEdge("Houston", "Miami", 1187);
+
+	// DALLAS
+	myGraph.insertEdge("Dallas", "Los Angeles", 1435);
+	myGraph.insertEdge("Dallas", "Kansas City", 496);
+	myGraph.insertEdge("Dallas", "Atlanta", 781);
+	myGraph.insertEdge("Dallas", "Houston", 239);
+
+
+	// KANSAS CITY
+	myGraph.insertEdge("Kansas City", "Chicago", 533);
+	myGraph.insertEdge("Kansas City", "Denver", 599);
+	myGraph.insertEdge("Kansas City", "Los Angeles", 1663);
+	myGraph.insertEdge("Kansas City", "Dallas", 496);
+	myGraph.insertEdge("Kansas City", "Atlanta", 864);
+	myGraph.insertEdge("Kansas City", "New York", 1260);
+
+	// CHICAGO
+	myGraph.insertEdge("Chicago", "Boston", 983);
+	myGraph.insertEdge("Chicago", "New York", 787);
+	myGraph.insertEdge("Chicago", "Kansas City", 533);
+	myGraph.insertEdge("Chicago", "Denver", 1003);
+	myGraph.insertEdge("Chicago", "Seattle", 2097);
+
+	// NEW YORK
+	myGraph.insertEdge("New York", "Atlanta", 888);
+	myGraph.insertEdge("New York", "Kansas City", 1260);
+	myGraph.insertEdge("New York", "Chicago", 787);
+	myGraph.insertEdge("New York", "Boston", 214);
+
+	// BOSTON
+	myGraph.insertEdge("Boston", "New York", 214);
+	myGraph.insertEdge("Boston", "Chicago", 983);
+
+		// DENVER
+	myGraph.insertEdge("Denver", "Seattle", 1331);
+	myGraph.insertEdge("Denver", "San Francisco", 1267);
+	myGraph.insertEdge("Denver", "Los Angeles", 1015);
+	myGraph.insertEdge("Denver", "Kansas City", 599);
+	myGraph.insertEdge("Denver", "Chicago", 1003);
+
+	// LOS ANGELES
+	myGraph.insertEdge("Los Angeles", "San Francisco", 381);
+	myGraph.insertEdge("Los Angeles", "Denver", 1015);
+	myGraph.insertEdge("Los Angeles", "Kansas City", 1663);
+	myGraph.insertEdge("Los Angeles", "Dallas", 1435);
+
+	// SAN FRANCISCO
+	myGraph.insertEdge("San Francisco", "Seattle", 807);
+	myGraph.insertEdge("San Francisco", "Denver", 1267);
+	myGraph.insertEdge("San Francisco", "Los Angeles", 381);
+
+	// SEATTLE
+	myGraph.insertEdge("Seattle", "San Francisco", 807);
+	myGraph.insertEdge("Seattle", "Denver", 1331);
+	myGraph.insertEdge("Seattle", "Chicago", 2097);
+
+	//*************************************************************************** End of block
+
+
+
+
+
+
+	vector<string> dfsVertexList;
+
+	cout << endl;
+	cout << "DFS - STARTING AT ATLANTA";
+	cout << endl;
+	cout << "****************************" << endl;
+
+	// DFS search + calculate total distance traveled (discovery edges)
+	int totalDistance = myGraph.DFS("Atlanta", dfsVertexList);
+
+	for(unsigned int i = 0; i < dfsVertexList.size(); i++)
+	{
+		cout << dfsVertexList.at(i) << endl;
+	}
+
+	cout << endl;
+
+	// discovery edges
+	vector<string> discEdge = myGraph.getDiscoveryEdges(dfsVertexList);
+
+	cout << endl;
+	cout << "DFS DISCOVERY EDGES";
+	cout << endl;
+	cout << "****************************" << endl;
+	for(unsigned int i = 0; i < discEdge.size(); i++)
+	{
+		cout << discEdge.at(i) << endl;
+	}
+
+	// back edges
+	vector<string> backEdge = myGraph.getBackEdges(dfsVertexList);
+
+	cout << endl;
+	cout << "DFS BACK EDGES";
+	cout << endl;
+	cout << "****************************" << endl;
+	for(unsigned int i = 0; i < backEdge.size(); i++)
+	{
+		cout << backEdge.at(i) << endl;
+	}
+
+	// total distance from discovery edges
+	cout << endl;
+	cout << "Total Distance Traveled by Discovery Edges: " << totalDistance << endl;
 
 
 	return 0;
 }
-
 
