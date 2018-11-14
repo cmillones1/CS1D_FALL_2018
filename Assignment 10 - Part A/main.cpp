@@ -1,11 +1,60 @@
+/*************************************************************************
+ * AUTHOR(S)	 : Chris Millones
+ * STUDENT IDS   : 361396 & --------
+ * Lab #		 : ------
+ * CLASS         : CS1D
+ * SECTION       : Mondays & Wednesday: 3:00 - 6:20PM
+ * DUE DATE    	 : -------
+ ************************************************************************/
 
+/*************************************************************************
+ * Assignment 10 - DFS.
+ * _______________________________________________________________________
+ *"Part A Develop software to perform a DFS starting at Atlanta\n"
+ "(always choose the edge with the smallest mileage).\n"
+ " Identify the discovery edges and the back edges.\n"
+ " What is the total distance travelled on the discovery edges?\n"
+ " Use an Adjacency List structure.\n
+ *
+ *
+ ************************************************************************/
+
+#include "iostream"
+#include "iomanip"
+using namespace std;
+
+const void PRINTAUTHOR() {
+
+	cout << left;
+	cout << "********************************************************\n";
+	cout << setw(10) << "AUTHOR: "
+			<< "      Christopher Millones & Jose Cardenas\n";
+	cout << setw(10) << "ASSIGNMENT #:  10\n";
+	cout << setw(10) << "CLASS: " << "      CS1D\n";
+	cout << setw(10) << "TIME: "
+			<< "      Mondays & Wednesday: 5:00 - 6\7:20PM\n";
+	cout << setw(10) << "DUE DATE: " << "      11-14-2018\n";
+	cout << "********************************************************\n\n";
+}
+
+const void INSTRUCTIONS() {
+
+	cout << left;
+	cout << "Part A Develop software to perform a DFS starting at Atlanta\n"
+			"(always choose the edge with the smallest mileage).\n"
+			" Identify the discovery edges and the back edges.\n"
+			" What is the total distance travelled on the discovery edges?\n"
+			" Use an Adjacency List structure.\n";
+}
 #include "graph.h"
-
-
 
 int main() {
 
-	Graph myGraph; // Graph object.
+	/*
+	 * Display The author information
+	 */
+	PRINTAUTHOR();
+	INSTRUCTIONS();
 
 	/*
 	 *The following block of "insertion" will handle the structure of the graph.
@@ -13,6 +62,7 @@ int main() {
 	 *the vertex with other vertex's
 	 */
 
+	Graph myGraph; // Graph object.
 	// ATLANTA
 	myGraph.insertEdge("Atlanta", "Miami", 661);
 	myGraph.insertEdge("Atlanta", "Houston", 810);
@@ -34,7 +84,6 @@ int main() {
 	myGraph.insertEdge("Dallas", "Kansas City", 496);
 	myGraph.insertEdge("Dallas", "Atlanta", 781);
 	myGraph.insertEdge("Dallas", "Houston", 239);
-
 
 	// KANSAS CITY
 	myGraph.insertEdge("Kansas City", "Chicago", 533);
@@ -61,7 +110,7 @@ int main() {
 	myGraph.insertEdge("Boston", "New York", 214);
 	myGraph.insertEdge("Boston", "Chicago", 983);
 
-		// DENVER
+	// DENVER
 	myGraph.insertEdge("Denver", "Seattle", 1331);
 	myGraph.insertEdge("Denver", "San Francisco", 1267);
 	myGraph.insertEdge("Denver", "Los Angeles", 1015);
@@ -86,56 +135,48 @@ int main() {
 
 	//*************************************************************************** End of block
 
+	vector<string> dfsVertexList; // Will hold the vertecies in the correct order of a DFS
 
 
-
-
-
-	vector<string> dfsVertexList;
-
-	cout << endl;
-	cout << "DFS - STARTING AT ATLANTA";
-	cout << endl;
-	cout << "****************************" << endl;
-
-	// DFS search + calculate total distance traveled (discovery edges)
+	// Will perform the DFS and store the vertecies in the correct manner while
+	// also calculating the total distance
 	int totalDistance = myGraph.DFS("Atlanta", dfsVertexList);
 
-	for(unsigned int i = 0; i < dfsVertexList.size(); i++)
-	{
-		cout << dfsVertexList.at(i) << endl;
+	/*
+	 * Will loop around the dfsvertexlist vector and display the elements
+	 * in the correct order of the dfs
+	 */
+	cout << "\n\tDFS Traversal Starting at City: ALANTA!\n";
+	cout << "\t***************************************\n";
+	for (int i = 0; i < dfsVertexList.size(); i++) {
+		cout << "\t\t\t" << "(" << i + 1 << "):" << dfsVertexList.at(i)
+				<< endl;
 	}
+	cout << "The Total distance traveled by on a discovery edge only : "
+			<< totalDistance;
 
 	cout << endl;
 
-	// discovery edges
-	vector<string> discEdge = myGraph.getDiscoveryEdges(dfsVertexList);
+	// Will perform the same idea as the vertecies list and display the vertex edge's that
+	// are discovery edges.
+	vector<string> discoveryEdges = myGraph.getDiscoveryEdges(dfsVertexList);
 
-	cout << endl;
-	cout << "DFS DISCOVERY EDGES";
-	cout << endl;
-	cout << "****************************" << endl;
-	for(unsigned int i = 0; i < discEdge.size(); i++)
-	{
-		cout << discEdge.at(i) << endl;
+	cout << "\nDiscover Edeges for the DFS Traversal starting at Alanta\n";
+	cout << "*********************************************************\n";
+	for (int i = 0; i < discoveryEdges.size(); i++) {
+		cout << discoveryEdges.at(i) << endl;
 	}
 
 	// back edges
-	vector<string> backEdge = myGraph.getBackEdges(dfsVertexList);
+	vector < string > backEdge = myGraph.getBackEdges(dfsVertexList);
 
-	cout << endl;
-	cout << "DFS BACK EDGES";
-	cout << endl;
-	cout << "****************************" << endl;
-	for(unsigned int i = 0; i < backEdge.size(); i++)
-	{
+	cout << "\nBackEdeges Edeges for the DFS Traversal starting at Alanta\n";
+	cout << "***********************************************************\n";
+	for (int i = 0; i < backEdge.size(); i++) {
 		cout << backEdge.at(i) << endl;
 	}
 
-	// total distance from discovery edges
-	cout << endl;
-	cout << "Total Distance Traveled by Discovery Edges: " << totalDistance << endl;
-
+	
 
 	return 0;
 }
