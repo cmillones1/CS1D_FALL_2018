@@ -1,0 +1,46 @@
+Seattle,San Francisco,807
+Seattle,Denver,1331
+Seattle,Chicago,2097
+San Francisco,Seattle,807
+San Francisco,Denver,1267
+San Francisco,Los Angeles,381
+Los Angeles,San Francisco,381
+Los Angeles,Denver,1015
+Los Angeles,Kansas City,1663
+Los Angeles,Dallas,1435
+Dallas,Los Angeles,1435
+Dallas,Kansas City,496
+Dallas,Atlanta,781
+Dallas,Houston,239
+Houston,Dallas,239
+Houston,Atlanta,810
+Houston,Miami,1187
+Miami,Houston,1187
+Miami,Atlanta,661
+Atlanta,Miami,661
+Atlanta,Houston,810
+Atlanta,Dallas,781
+Atlanta,Kansas City,864
+Atlanta,New York,888
+New York,Atlanta,888
+New York,Kansas City,1260
+New York,Chicago,787
+New York,Boston,214
+Boston,New York,214
+Boston,Chicago,983
+Chicago,Boston,983
+Chicago,New York,787
+Chicago,Kansas City,533
+Chicago,Denver,1003
+Chicago,Seattle,2097
+Denver,Seattle,1331
+Denver,San Francisco,1267
+Denver,Los Angeles,1015
+Denver,Kansas City,599
+Denver,Chicago,1003
+Kansas City,Chicago,533
+Kansas City,Denver,599
+Kansas City,Los Angeles,1663
+Kansas City,Dallas,496
+Kansas City,Atlanta,864
+Kansas City,New York,1260
